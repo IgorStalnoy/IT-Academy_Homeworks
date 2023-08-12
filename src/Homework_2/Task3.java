@@ -13,37 +13,34 @@ public class Task3 {
         Scanner in = new Scanner(System.in);
         System.out.print("Please, input a five-digit number: ");
         numberValidation = in.hasNextInt();
-        if (numberValidation == true){
+        if (numberValidation == true) {
             firstInputInteger = Math.abs(in.nextInt());
-            if ((firstInputInteger / 10000) >= 1 && (firstInputInteger / 10000) < 10){
+            if ((firstInputInteger / 10000) >= 1 && (firstInputInteger / 10000) < 10) {
                 numberValidation = true;
-            }
-            else
+            } else
                 numberValidation = false;
         }
 
 
-        if (numberValidation == false){
-            for (;numberValidation == false;) {
+        if (numberValidation == false) {
+            for (; numberValidation == false; ) {
                 Scanner in2 = new Scanner(System.in);
                 System.out.print("You didn't enter a five-digit number, please enter a five-digit number: ");
                 numberValidation = in2.hasNextInt();
-                if ( numberValidation == true){
+                if (numberValidation == true) {
                     secondInputInteger = Math.abs(in2.nextInt());
-                    if ((secondInputInteger / 10000) >= 1 && (secondInputInteger / 10000) < 10){
+                    if ((secondInputInteger / 10000) >= 1 && (secondInputInteger / 10000) < 10) {
                         numberValidation = true;
                         secondInputInteger = secondInputInteger % 1000;
                         secondInputInteger = secondInputInteger / 100;
                         System.out.println("The third digit of the entered number : " + secondInputInteger);
-                    }
-                    else {
+                    } else {
                         numberValidation = false;
                     }
 
                 }
             }
-        }
-        else {
+        } else {
             firstInputInteger = firstInputInteger % 1000;
             firstInputInteger = firstInputInteger / 100;
             System.out.println("The third digit of the entered number : " + firstInputInteger);
