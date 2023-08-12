@@ -20,7 +20,7 @@ public class FirstTask {
             System.out.print("You didn't enter an integer, please enter an integer: ");
             numberValidation = in2.hasNextInt();
                 if ( numberValidation == true){
-                    secondInputInteger = in2.nextInt();
+                    secondInputInteger = Math.abs(in2.nextInt());
                         if ((secondInputInteger / 10) < 1){
                             System.out.println("The last digit of the entered number is " + secondInputInteger);
                         }
@@ -31,7 +31,7 @@ public class FirstTask {
         }
         }
         else {
-            firstInputInteger = in.nextInt();
+            firstInputInteger = Math.abs(in.nextInt());
             if ((firstInputInteger / 10) < 1){
                 System.out.println("The last digit of the entered number is " + firstInputInteger);
             }
