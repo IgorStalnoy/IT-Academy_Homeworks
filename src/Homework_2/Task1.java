@@ -2,7 +2,7 @@ package Homework_2;
 
 import java.util.Scanner;
 
-public class FirstTask {
+public class Task1 {
     //Вывести последнюю цифру числа
     public static void main(String[] args) {
 

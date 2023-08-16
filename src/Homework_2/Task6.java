@@ -2,11 +2,11 @@ package Homework_2;
 
 import java.util.Scanner;
 
-public class Task4 {
-    //Вывести длину отрезка, проходящей через две точки
+public class Task6 {
+    //Вывести уравнение прямой, проходящей через две точки
     public static void main(String[] args) {
 
-        double x1 = 0, y1 = 0, x2 = 0, y2 = 0, distance = 0;
+        double x1 = 0, y1 = 0, x2 = 0, y2 = 0;
         boolean numberValidation;
 
 
@@ -77,9 +77,18 @@ public class Task4 {
         } else
             y2 = in7.nextInt();                              //y2 validation end
 
-
-        distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-        System.out.println("The length of the segment between the entered coordinates is equal to " + distance);
+//        y = kx + b;
+        double k = (y1 - y2) / (x1 - x2);
+        double b = y2 - k * x2;
+        String sign = "";
+        if (b > 0) {
+            sign = " + ";
+        } else if (b == 0) {
+            sign = "";
+        } else if (b < 0) {
+            sign = " - ";
+        }
+        System.out.println("Equation of a straight line on the entered points: " + "y = " + k + "x" + sign + Math.abs(b));
 
     }
 }
