@@ -12,13 +12,16 @@ public class Task3_1 {
 
 
         int seconds = (int) (Math.random() * 2_147_483_647) + 1;
-        int year, day, hour, minute;
-        String yearOutput, dayOutput, hourOutput, minuteOutput, secondsOutput;
-        String yearNullCase, dayNullCase, hourNullCase, minuteNullCase, secondsNullCase;
+        int year, weeks, day, hour, minute;
+        String yearOutput, weeksOutput, dayOutput, hourOutput, minuteOutput, secondsOutput;
+        String yearNullCase, weeksNullCase, dayNullCase, hourNullCase, minuteNullCase, secondsNullCase;
 
+        System.out.println(seconds + " секунд");
 
         year = seconds / 31_536_000;
         seconds = seconds % 31_536_000;
+        weeks = seconds / 604_800;
+        seconds = seconds % 604_800;
         day = seconds / 86400;
         seconds = seconds % 86400;
         hour = seconds / 3600;
@@ -42,6 +45,23 @@ public class Task3_1 {
         } else {
             yearOutput = " лет ";
             yearNullCase = Integer.toString(year);
+        }
+
+        if (weeks == 0) {
+            weeksOutput = "";
+            weeksNullCase = "";
+        } else if (weeks >= 5 && weeks <= 20) {
+            weeksOutput = " недель ";
+            weeksNullCase = Integer.toString(weeks);
+        } else if (weeks % 10 == 1) {
+            weeksOutput = " неделя ";
+            weeksNullCase = Integer.toString(weeks);
+        } else if (weeks % 10 >= 2 && weeks % 10 <= 4) {
+            weeksOutput = " недели ";
+            weeksNullCase = Integer.toString(weeks);
+        } else {
+            weeksOutput = " недель ";
+            weeksNullCase = Integer.toString(weeks);
         }
 
 
@@ -116,7 +136,7 @@ public class Task3_1 {
             secondsNullCase = Integer.toString(seconds);
         }
 
-        System.out.println(yearNullCase + yearOutput + dayNullCase + dayOutput + hourNullCase + hourOutput + minuteNullCase + minuteOutput + secondsNullCase + secondsOutput);
+        System.out.println(yearNullCase + yearOutput + weeksNullCase + weeksOutput + dayNullCase + dayOutput + hourNullCase + hourOutput + minuteNullCase + minuteOutput + secondsNullCase + secondsOutput);
 
     }
 }
