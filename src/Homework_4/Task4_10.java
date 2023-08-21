@@ -15,7 +15,7 @@ public class Task4_10 {
                 minutesFirstDigit = minutesInHour % 10;
                 minutesSecondDigit = minutesInHour / 10;
                 boolean mirrorCheck = hoursSecondDigit == minutesFirstDigit && hoursFirstDigit == minutesSecondDigit;
-                if (mirrorCheck){
+                if (mirrorCheck) {
                     mirrorCounter++;
                 }
             }
