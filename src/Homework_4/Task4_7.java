@@ -25,7 +25,7 @@ public class Task4_7 {
             }
         }
 
-        System.out.println(counterHappyTickets);
+        System.out.println("There are " + counterHappyTickets + " lucky tickets in a roll");
 
     }
 }

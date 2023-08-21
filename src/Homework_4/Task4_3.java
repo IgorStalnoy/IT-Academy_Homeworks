@@ -26,18 +26,15 @@ public class Task4_3 {
         if (inputNumber2 / 10 == 0) {
             System.out.println(maxIndex);
         } else {
-            for (int digitIndex = 1; inputNumber2 / 10 != 0; digitIndex++) {    //Доработка задания в классе - выводит все индексы максимальной цифры, если их более одной
+            for (int digitIndex = 1; inputNumber2 != 0; digitIndex++) {    //Доработка задания в классе - выводит все индексы максимальной цифры, если их более одного
                 nextDigit = inputNumber2 % 10;
                 if (nextDigit == maxDigit) {
                     System.out.print(digitIndex + " ");
                 }
                 inputNumber2 = inputNumber2 / 10;
-                if (inputNumber2 / 10 == 0 && inputNumber2 % 10 == maxDigit) {
-                    digitIndex = digitIndex + 1;
-                    System.out.print(digitIndex + " ");
-                }
             }
         }
-
     }
+
 }
+
