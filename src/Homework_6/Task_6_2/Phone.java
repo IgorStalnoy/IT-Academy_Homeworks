@@ -24,8 +24,8 @@ public class Phone {
     }
 
     void sendMessage(long... numbers) {
-        for (long number : numbers) {
-            System.out.println("Message sent from number: " + this.number + " to number : +" + number);
+        for (long i : numbers) {
+            System.out.println("Message sent from number: " + this.number + " to number : +" + i);
         }
         System.out.println();
     }
