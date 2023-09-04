@@ -5,13 +5,11 @@ public class Task4_1 {
     //     1 2 4 8 16 32 64 128 256 512
     public static void main(String[] args) {
 
-        double twoDigitDegree;
-        int integerOutput;
+        int factorVariable = 1;
 
-        for (int degree = 0; degree <= 9; degree++) {
-            twoDigitDegree = Math.pow(2, degree);
-            integerOutput = (int) Math.round(twoDigitDegree);
-            System.out.print(integerOutput + " ");
+        while (factorVariable <= 512) {
+            System.out.print(factorVariable + " ");
+            factorVariable *= 2;
         }
 
     }

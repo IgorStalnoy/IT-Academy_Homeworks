@@ -2,8 +2,8 @@ package Homework_4;
 
 import java.util.Scanner;
 
-public class Homework_4_Methods {
-    public int integerInputValidation() {
+abstract class KeyboardInputMethods {
+    public static int keyboardInputInteger() {
         int inputNumber = 0;
         System.out.print("Please input an integer: ");
         boolean numberValidation;
@@ -13,8 +13,7 @@ public class Homework_4_Methods {
             numberValidation = in.hasNextInt();
             if (!numberValidation) {
                 System.out.println("You input not an integer, please input an integer");
-            }
-            else {
+            } else {
                 inputNumber = in.nextInt();
             }
         }
@@ -23,7 +22,7 @@ public class Homework_4_Methods {
     }
 
 
-    public int integerPositiveInputValidation() {
+    static int keyboardInputIntegerPositiveInteger() {
         int inputNumber = 0;
         System.out.print("Please input a positive integer: ");
         boolean numberValidation;
@@ -33,8 +32,7 @@ public class Homework_4_Methods {
             numberValidation = in.hasNextInt();
             if (!numberValidation) {
                 System.out.println("You input not a positive integer, please input a positive integer");
-            }
-            else {
+            } else {
                 inputNumber = in.nextInt();
                 if (inputNumber < 0) {
                     System.out.println("You input not a positive integer, please input a positive integer");

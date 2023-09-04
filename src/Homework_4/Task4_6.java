@@ -6,28 +6,21 @@ public class Task4_6 {
     // имеется 100 тыс. единиц боевой техники и каждая боевая машина имеет номер от 00001 до 99999, то сколько всего номеров придётся исключить?
     public static void main(String[] args) {
 
-        int currentDigit, nextDigit, engineryNumberCheck;
         int unluckyTechniqueCounter = 0;
-        boolean unluckyTechniqueCheck;
 
-        for (int engineryNumber = 1; engineryNumber < 100000; engineryNumber++) {
-            engineryNumberCheck = engineryNumber;
-            do {
-                currentDigit = engineryNumberCheck % 10;
-                engineryNumberCheck = engineryNumberCheck / 10;
-                nextDigit = engineryNumberCheck % 10;
-                unluckyTechniqueCheck = currentDigit == 4 || nextDigit == 4 || (nextDigit == 1 && currentDigit == 3);
-                if (unluckyTechniqueCheck) {
+        for (int i = 1; i < 100000; i++) {
+            int fourDigitCheck, thirteenNumberCheck;
+            int engineryNumber = i;
+            while (engineryNumber > 0) {
+                fourDigitCheck = engineryNumber % 10;
+                thirteenNumberCheck = engineryNumber % 100;
+                if (fourDigitCheck == 4 || thirteenNumberCheck == 13) {
                     unluckyTechniqueCounter++;
-//                    System.out.print(engineryNumber + " ");
                     break;
                 }
-            } while (engineryNumberCheck / 10 != 0);
-
-
+                engineryNumber /= 10;
+            }
         }
-
         System.out.println("For the exercises, " + unluckyTechniqueCounter + " pieces of equipment with an unlucky number will have to be excluded");
-
     }
 }

@@ -1,22 +1,22 @@
 package Homework_4;
 
+import static Homework_4.KeyboardInputMethods.*;
+
 public class Task4_3 {
     //Найдите самую большую цифру числа, введенного с клавиатуры, а также ее индекс
     public static void main(String[] args) {
 
-        Homework_4_Methods integerValidation = new Homework_4_Methods();
         int nextDigit, maxIndex, maxDigit;
-        int inputNumber = Math.abs(integerValidation.integerInputValidation());
+        int inputNumber = Math.abs(keyboardInputInteger());
         int inputNumber2 = inputNumber;
         maxDigit = inputNumber % 10;
         maxIndex = 1;
 
-        for (int digitIndex = 1; inputNumber / 10 != 0; digitIndex++) {
+        while (inputNumber / 10 != 0) {
             inputNumber = inputNumber / 10;
             nextDigit = inputNumber % 10;
             if (nextDigit > maxDigit) {
                 maxDigit = nextDigit;
-                maxIndex = digitIndex + 1;
             }
         }
 
