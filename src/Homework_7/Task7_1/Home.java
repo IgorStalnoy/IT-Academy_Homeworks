@@ -76,7 +76,7 @@ public class Home {
     public void printKitchenAppliancesCatalog() {
         System.out.println("You have " + kitchenAppliancesCatalog.length + " kitchen appliance items :");
         for (KitchenAppliances i : kitchenAppliancesCatalog) {
-            System.out.printf("Type : %s| Model : %s| Power Сonsumption : %dkw|  Weight : %skg|  Price : %d$  \n",i.getType(), i.getModel(), i.getPowerConsumption(), i.getWeight(),
+            System.out.printf("Type : %s| Model : %s| Power Сonsumption : %dkw|  Weight : %skg|  Price : %d$  \n", i.getType(), i.getModel(), i.getPowerConsumption(), i.getWeight(),
                     i.getPrice());
         }
         System.out.println();
@@ -85,7 +85,7 @@ public class Home {
     public void printLivingRoomAppliancesCatalog() {
         System.out.println("You have " + livingRoomAppliancesCatalog.length + " living room appliances items :");
         for (LivingRoomAppliances i : livingRoomAppliancesCatalog) {
-            System.out.printf("Type : %s| Model : %s| Power Сonsumption : %dkw|  Weight : %skg|  Price : %d$  \n",i.getType(), i.getModel(), i.getPowerConsumption(), i.getWeight(),
+            System.out.printf("Type : %s| Model : %s| Power Сonsumption : %dkw|  Weight : %skg|  Price : %d$  \n", i.getType(), i.getModel(), i.getPowerConsumption(), i.getWeight(),
                     i.getPrice());
         }
         System.out.println();
@@ -94,7 +94,7 @@ public class Home {
     public void printSourcesOfElectricityCatalog() {
         System.out.println("You have " + sourcesOfElectricityCatalog.length + " sources of electricity items :");
         for (SourcesOfElectricity i : sourcesOfElectricityCatalog) {
-            System.out.printf("Type : %s| Model : %s| Generated power : %dkw|  Weight : %skg|  Price : %d$  \n",i.getType(), i.getModel(), i.getGeneratedPower(), i.getWeight(),
+            System.out.printf("Type : %s| Model : %s| Generated power : %dkw|  Weight : %skg|  Price : %d$  \n", i.getType(), i.getModel(), i.getGeneratedPower(), i.getWeight(),
                     i.getPrice());
         }
         System.out.println();
