@@ -6,12 +6,11 @@ public class Task5_4 {
     //Найти строку матрицы с максимальной суммой элементов
     public static void main(String[] args) {
 
-        Homework_5_Methods arrayActions = new Homework_5_Methods();
         Random random = new Random();
         int randomMatrixStrings = random.nextInt(31) + 1;
         int randomMatrixColumns = random.nextInt(31) + 1;
         int[][] randomMatrix = new int[randomMatrixStrings][randomMatrixColumns];
-        arrayActions.fillMatrixWithRandomNumbers(randomMatrix);
+        ArrayUtils.fillMatrixWithRandomNumbers(randomMatrix);
 
         int stringSum;
         int maxStringSum = 0;
@@ -33,7 +32,7 @@ public class Task5_4 {
 
         System.out.println("String number with maximum amount : " + maxStringSumPosition);
         System.out.println("Maximum sum of values in one string : " + maxStringSum);
-        arrayActions.printMatrix(randomMatrix);
+        ArrayUtils.printMatrix(randomMatrix);
 
     }
 }

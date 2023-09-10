@@ -3,14 +3,13 @@ package Homework_5;
 public class Task5_1 {
     //Разложить положительные и отрицательные числа по разным массивам (сумма размеров новых массивов должна быть равна размеру исходного)
     public static void main(String[] args) {
-        Homework_5_Methods arrayActions = new Homework_5_Methods();
         int[] randomArray = new int[20];
         int negativeArrayLength = 0;
         int positiveArrayLength = 0;
         int zeroCounter = 0;
-        randomArray = arrayActions.fillingArrayWithRandomNumbers(randomArray);
+        ArrayUtils.fillArrayWithRandomNumbers(randomArray);
         System.out.print("Random");
-        arrayActions.printArray(randomArray);
+        ArrayUtils.printArray(randomArray);
 
         for (int j : randomArray) {
             if (j == 0) {
@@ -43,9 +42,9 @@ public class Task5_1 {
             System.out.println("Zero is neither positive nor negative. There are " + zeroCounter + " nulls in the original array");
         }
         System.out.print("Negative numbers ");
-        arrayActions.printArray(negativeNumbersArray);
+        ArrayUtils.printArray(negativeNumbersArray);
         System.out.print("Positive numbers ");
-        arrayActions.printArray(positiveNumbersArray);
+        ArrayUtils.printArray(positiveNumbersArray);
 
     }
 }

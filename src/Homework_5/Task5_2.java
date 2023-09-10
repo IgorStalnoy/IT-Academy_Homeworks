@@ -7,7 +7,6 @@ public class Task5_2 {
     // количеству уникальных элементов)
     public static void main(String[] args) {
 
-        Homework_5_Methods arrayActions = new Homework_5_Methods();
         Random random = new Random();
         int[] randomArray = new int[20];
 //        int[] randomArray = {55, 1, 1, 2, 3, 4, 0};  // Тестовые массивы
@@ -56,7 +55,7 @@ public class Task5_2 {
         }                                                                                                       //конец генерации массива
 
         System.out.print("Random");
-        arrayActions.printArray(randomArray);
+        ArrayUtils.printArray(randomArray);
 
         for (int i = 0; i < randomArray.length; i++) {
             for (int j = 0; j < randomArray.length; j++) {
@@ -91,7 +90,7 @@ public class Task5_2 {
             System.out.print("All numbers of the source array are repeated, the length of the final array is 0");
         } else {
             System.out.print("Result");
-            arrayActions.printArray(resultArray);
+            ArrayUtils.printArray(resultArray);
         }
 
     }

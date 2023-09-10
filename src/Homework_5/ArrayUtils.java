@@ -2,18 +2,17 @@ package Homework_5;
 
 import java.util.Random;
 
-public class Homework_5_Methods {
+abstract class ArrayUtils {
 
-    Random random = new Random();
+    static Random random = new Random();
 
-    public int[] fillingArrayWithRandomNumbers(int[] inputArray) {
+    public static void fillArrayWithRandomNumbers(int[] inputArray) {
         for (int i = 0; i < inputArray.length; i++) {
             inputArray[i] = random.nextInt(101) - random.nextInt(101);
         }
-        return inputArray;
     }
 
-    public void printArray(int[] inputArray) {
+    public static void printArray(int[] inputArray) {
         System.out.print(" array : { ");
         for (int i : inputArray) {
             System.out.printf("%3d ", i);
@@ -21,15 +20,7 @@ public class Homework_5_Methods {
         System.out.print("} Array length : " + inputArray.length + "\n");
     }
 
-    public void printInvertArray(int[] inputArray) {
-        System.out.print(" array : { ");
-        for (int i = inputArray.length - 1; i >= 0; i--) {
-            System.out.printf("%3d ", inputArray[i]);
-        }
-        System.out.print("} Array length : " + inputArray.length + "\n");
-    }
-
-    public int[] fillArrayWithOrderedNumbers(int[] inputArray) {
+    public static void fillArrayWithOrderedNumbers(int[] inputArray) {
         inputArray[0] = random.nextInt(180) - random.nextInt(200);
         for (int i = 0; i < inputArray.length; i++) {
             inputArray[i] = random.nextInt(101) - random.nextInt(101);
@@ -49,10 +40,9 @@ public class Homework_5_Methods {
             inputArray[i] = min;
             inputArray[minPosition] = minBuffer;
         }
-        return inputArray;
     }
 
-    public void fillMatrixWithRandomNumbers(int[][] inputMatrix) {
+    public static void fillMatrixWithRandomNumbers(int[][] inputMatrix) {
         for (int i = 0; i < inputMatrix.length; i++) {
             for (int j = 0; j < inputMatrix[0].length; j++) {
                 inputMatrix[i][j] = random.nextInt(101) -  random.nextInt(101);
@@ -60,7 +50,7 @@ public class Homework_5_Methods {
         }
     }
 
-    public void printMatrix(int[][] inputMatrix) {
+    public static void printMatrix(int[][] inputMatrix) {
         System.out.print("Strings/columns  ");
         for (int i = 0; i < inputMatrix[0].length; i++) {
             System.out.printf("%5d ", i);

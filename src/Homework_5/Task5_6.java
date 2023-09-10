@@ -5,14 +5,19 @@ public class Task5_6 {
     //  При перевороте элементов не создавать еще один массив
     public static void main(String[] args) {
 
-        Homework_5_Methods arrayActions = new Homework_5_Methods();
-        int[] randomArray = new int[15];
-        arrayActions.fillingArrayWithRandomNumbers(randomArray);
+        int[] randomArray = new int[11];
+        ArrayUtils.fillArrayWithRandomNumbers(randomArray);
         System.out.print("Random source");
-        arrayActions.printArray(randomArray);
+        ArrayUtils.printArray(randomArray);
+
+        for (int i = 0; i < randomArray.length / 2; i++) {
+            int temp = randomArray[i];
+            randomArray[i] = randomArray[randomArray.length - i - 1];
+            randomArray[randomArray.length - i - 1] = temp;
+        }
 
         System.out.print("Result invert");
-        arrayActions.printInvertArray(randomArray);
+        ArrayUtils.printArray(randomArray);
 
     }
 }
