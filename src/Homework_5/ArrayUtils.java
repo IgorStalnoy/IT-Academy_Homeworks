@@ -45,7 +45,7 @@ abstract class ArrayUtils {
     public static void fillMatrixWithRandomNumbers(int[][] inputMatrix) {
         for (int i = 0; i < inputMatrix.length; i++) {
             for (int j = 0; j < inputMatrix[0].length; j++) {
-                inputMatrix[i][j] = random.nextInt(101) -  random.nextInt(101);
+                inputMatrix[i][j] = random.nextInt(101) - random.nextInt(101);
             }
         }
     }
