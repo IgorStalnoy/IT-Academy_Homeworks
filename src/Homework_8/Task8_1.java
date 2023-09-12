@@ -14,7 +14,7 @@ public class Task8_1 {
         text = inputText.next();
 
         if (text.startsWith("abc")) {
-            text = text.replaceFirst("^abc", "www");
+            text = text.replaceFirst("abc", "www");
         } else {
             text = text + "www";
         }

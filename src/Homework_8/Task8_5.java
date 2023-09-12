@@ -78,10 +78,10 @@ public class Task8_5 {
                 .......
                 ........""";
         String[] ipList = ipAddresses.split("\\n+");
-        Pattern pattern = Pattern.compile("(([\\d]{1,2}|[1]\\d\\d|[12][0-5][0-5]|[2][0-4]\\d)\\.){3}([\\d]{1,2}|[1]\\d\\d|[12][0-5][0-5]|[2][0-4]\\d)");
+        Pattern validIPPattern = Pattern.compile("(([\\d]{1,2}|[1]\\d\\d|[12][0-5][0-5]|[2][0-4]\\d)\\.){3}([\\d]{1,2}|[1]\\d\\d|[12][0-5][0-5]|[2][0-4]\\d)");
         for (String i : ipList) {
-            Matcher matcher = pattern.matcher(i);
-            boolean isValid = matcher.matches();
+            Matcher validIPMatcher = validIPPattern.matcher(i);
+            boolean isValid = validIPMatcher.matches();
             boolean isAnnotation = i.equals("validates:") || i.equals("should not validate:");
             if (isAnnotation) {
                 System.out.println(i);

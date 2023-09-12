@@ -36,19 +36,19 @@ public class Task8_3 {
         //task 1
 
         char[] charArray = text1.toCharArray();
-        int maxRepeatedCount = 0;
-        int repeatedIntCounter = 0;
+        int longestNumber = 0;
+        int counterOfDigits = 0;
         for (char i : charArray) {
             if (i >= 48 && i <= 57) {
-                repeatedIntCounter++;
+                counterOfDigits++;
             } else {
-                if (maxRepeatedCount < repeatedIntCounter) {
-                    maxRepeatedCount = repeatedIntCounter;
+                if (longestNumber < counterOfDigits) {
+                    longestNumber = counterOfDigits;
                 }
-                repeatedIntCounter = 0;
+                counterOfDigits = 0;
             }
         }
-        System.out.println("Greatest number of consecutive digits : " + maxRepeatedCount);
+        System.out.println("Greatest number of consecutive digits : " + longestNumber);
 
         //task 2
 

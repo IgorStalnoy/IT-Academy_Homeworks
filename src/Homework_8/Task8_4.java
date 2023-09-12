@@ -32,10 +32,10 @@ public class Task8_4 {
                         testmail@mail.com.
                 """;
         String[] emailList = emails.split("\\s+");
-        Pattern pattern = Pattern.compile("[\\w][\\w\\.\\-]+@([а-я\\w\\-]+\\.)+([(a-z]{2,6}|[а-я]{2,6})");
+        Pattern validEmailPattern = Pattern.compile("\\w[\\w.\\-]+@([а-я\\w\\-]+\\.)+([(a-z]{2,6}|[а-я]{2,6})");
         for (String i : emailList) {
-            Matcher matcher = pattern.matcher(i);
-            boolean isValid = matcher.matches();
+            Matcher validEmailMatcher = validEmailPattern.matcher(i);
+            boolean isValid = validEmailMatcher.matches();
             if (isValid) {
                 System.out.println(i + " | is valid email");
             } else {
