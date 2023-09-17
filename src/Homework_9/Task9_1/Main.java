@@ -1,6 +1,10 @@
 package Homework_9.Task9_1;
 
 public class Main {
+    /**
+     * Реализуйте свой собственный стек (очередь) со стандартными функциями push() и pop(). Для получения оценки 10 также необходимо реализовать с дополнительную
+     * функцию max() за O(1).
+     */
     public static void main(String[] args) {
 
         CustomStack<Phone> stack = new CustomStack<>();
