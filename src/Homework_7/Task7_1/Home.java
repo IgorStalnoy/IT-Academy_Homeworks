@@ -5,8 +5,6 @@ import Homework_7.Task7_1.HomeAppliances.HomeAppliance;
 import Homework_7.Task7_1.HomeAppliances.KitchenAppliance;
 import Homework_7.Task7_1.HomeAppliances.LivingRoomAppliance;
 
-import java.util.Objects;
-
 public class Home {
 
     private int homeBudget;
@@ -119,7 +117,7 @@ public class Home {
     }
 
     public void sortHomeAppliancesDESC(String fieldName) {
-        if (Objects.equals(fieldName, "price")) {
+        if (fieldName.equals("price")) {
             if (kitchenApplianceList.length > 0) {
                 int maxPrice = kitchenApplianceList[0].getPrice();
                 int maxPosition = 0;
@@ -173,7 +171,7 @@ public class Home {
                     maxPrice = generatorList[i + 1].getPrice();
                 }
             }
-        } else if (Objects.equals(fieldName, "weight")) {
+        } else if (fieldName.equals("weight")) {
             if (kitchenApplianceList.length > 0) {
                 double maxWeight = kitchenApplianceList[0].getWeight();
                 int maxPosition = 0;
@@ -225,7 +223,7 @@ public class Home {
                     maxWeight = generatorList[i + 1].getWeight();
                 }
             }
-        } else if (Objects.equals(fieldName, "powerСonsumption")) {
+        } else if (fieldName.equals("powerСonsumption")) {
             if (kitchenApplianceList.length > 0) {
                 int maxPowerConsumption = kitchenApplianceList[0].getPowerConsumption();
                 int maxPosition = 0;
@@ -260,7 +258,7 @@ public class Home {
                     maxPowerConsumption = livingRoomApplianceList[i + 1].getPowerConsumption();
                 }
             }
-        } else if (Objects.equals(fieldName, "generatedPower")) {
+        } else if (fieldName.equals("generatedPower")) {
             if (generatorList.length > 0) {
                 int maxGeneratedPower = generatorList[0].getGeneratedPower();
                 int maxPosition = 0;
@@ -309,7 +307,7 @@ public class Home {
     public void searchByParameter(String fieldName, int min, int max) {
         HomeAppliance[] temp;
         HomeAppliance[] homeApplianceSearchResult = new HomeAppliance[0];
-        if (Objects.equals(fieldName, "price")) {
+        if (fieldName.equals("price")) {
             for (KitchenAppliance kitchenAppliance : kitchenApplianceList) {
                 if (kitchenAppliance.getPrice() >= min && kitchenAppliance.getPrice() <= max) {
                     temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
@@ -337,7 +335,7 @@ public class Home {
                     System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
-        } else if (Objects.equals(fieldName, "weight")) {
+        } else if (fieldName.equals("weight")) {
             for (KitchenAppliance kitchenAppliance : kitchenApplianceList) {
                 if (kitchenAppliance.getWeight() >= min && kitchenAppliance.getWeight() <= max) {
                     temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
@@ -365,7 +363,7 @@ public class Home {
                     System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
-        } else if (Objects.equals(fieldName, "powerConsumption")) {
+        } else if (fieldName.equals("powerConsumption")) {
             for (KitchenAppliance kitchenAppliance : kitchenApplianceList) {
                 if (kitchenAppliance.getPowerConsumption() >= min && kitchenAppliance.getPowerConsumption() <= max) {
                     temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
@@ -384,7 +382,7 @@ public class Home {
                     System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
-        } else if (Objects.equals(fieldName, "generatedPower")) {
+        } else if (fieldName.equals("generatedPower")) {
             for (Generator generator : generatorList) {
                 if (generator.getGeneratedPower() >= min && generator.getGeneratedPower() <= max) {
                     temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
@@ -395,7 +393,7 @@ public class Home {
                 }
             }
         }
-        if (Objects.equals(fieldName, "price") || Objects.equals(fieldName, "weight") || Objects.equals(fieldName, "powerConsumption") || Objects.equals(fieldName, "generatedPower")) {
+        if (fieldName.equals("price") || fieldName.equals("weight") || fieldName.equals("powerConsumption") || fieldName.equals("generatedPower")) {
             System.out.println("Found " + homeApplianceSearchResult.length + " items matching your criteria.");
             for (HomeAppliance i : homeApplianceSearchResult) {
                 if (i instanceof KitchenAppliance) {
