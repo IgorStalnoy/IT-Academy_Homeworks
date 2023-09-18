@@ -1,9 +1,9 @@
 package Homework_7.Task7_1.HomeAppliances;
 
-public class Generators extends HomeAppliances {
+public class Generator extends HomeAppliances {
     int generatedPower;
 
-    public Generators(String type, int price, String model, int generatedPower, double weight) {
+    public Generator(String type, int price, String model, int generatedPower, double weight) {
         super(model, weight, price, type);
         this.generatedPower = generatedPower;
     }

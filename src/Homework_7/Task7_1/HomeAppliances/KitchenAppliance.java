@@ -1,13 +1,13 @@
 package Homework_7.Task7_1.HomeAppliances;
 
-public class LivingRoomAppliances extends HomeAppliances {
+public class KitchenAppliance extends HomeAppliances {
     private final int powerConsumption;
-    private final int attractivenessInInterior; //from 0 to 10
+    private final boolean isUsedForCookingFood;
 
-    public LivingRoomAppliances(String type, int price, String model, int powerConsumption, double weight, int attractivenessInInterior) {
+    public KitchenAppliance(String type, int price, String model, int powerConsumption, double weight, boolean isUsedForCookingFood) {
         super(model, weight, price, type);
         this.powerConsumption = powerConsumption;
-        this.attractivenessInInterior = attractivenessInInterior;
+        this.isUsedForCookingFood = isUsedForCookingFood;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class LivingRoomAppliances extends HomeAppliances {
             if (getBelongsToHouse().getUsedNetworkLoad() + this.powerConsumption > getBelongsToHouse().getMaxNetworkLoad()) {
                 getBelongsToHouse().energyOverload();
             } else {
-                setConnectedToGrid(true);
+                this.setConnectedToGrid(true);
                 getBelongsToHouse().setUsedNetworkLoad(this.powerConsumption);
                 System.out.println("You have successfully connected the device to the network. Please do not overload the network.\n");
             }
@@ -34,17 +34,17 @@ public class LivingRoomAppliances extends HomeAppliances {
         } else if (getBelongsToHouse() != null && !isConnectedToGrid()) {
             System.out.println("You have already unplugged the appliance\n");
         } else {
-            setConnectedToGrid(false);
+            this.setConnectedToGrid(false);
             getBelongsToHouse().setUsedNetworkLoad(this.powerConsumption * -1);
             System.out.println("You have successfully disconnected the device to the network. Please do not overload the network.\n");
         }
     }
 
-    public int getPowerConsumption() {
-        return powerConsumption;
+    public boolean isUsedForCookingFood() {
+        return isUsedForCookingFood;
     }
 
-    public int getAttractivenessInInterior() {
-        return attractivenessInInterior;
+    public int getPowerConsumption() {
+        return powerConsumption;
     }
 }

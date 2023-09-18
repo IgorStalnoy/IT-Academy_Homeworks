@@ -1,8 +1,8 @@
 package Homework_7.Task7_1;
 
-import Homework_7.Task7_1.HomeAppliances.Generators;
-import Homework_7.Task7_1.HomeAppliances.KitchenAppliances;
-import Homework_7.Task7_1.HomeAppliances.LivingRoomAppliances;
+import Homework_7.Task7_1.HomeAppliances.Generator;
+import Homework_7.Task7_1.HomeAppliances.KitchenAppliance;
+import Homework_7.Task7_1.HomeAppliances.LivingRoomAppliance;
 
 /**
  * 1)Определить иерархию домашней техники.
@@ -46,20 +46,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        KitchenAppliances fridge = new KitchenAppliances("Fridge", 750, "LG GA-B419SQGL", 470, 73, false);
-        KitchenAppliances coffeeMachine = new KitchenAppliances("Coffee machine", 1200, "DeLonghi Dinamica Plus ECAM 370.95.T", 450, 7, true);
-        KitchenAppliances microwave = new KitchenAppliances("Microwave", 400, "Bosch BFL524MB0", 1000, 17, true);
-        KitchenAppliances kettle = new KitchenAppliances("Kettle", 40, "BORK K810", 2000, 4, true);
-        KitchenAppliances oven = new KitchenAppliances("Oven", 350, "GEFEST 622-02 А", 3500, 45, true);
+        KitchenAppliance fridge = new KitchenAppliance("Fridge", 750, "LG GA-B419SQGL", 470, 73, false);
+        KitchenAppliance coffeeMachine = new KitchenAppliance("Coffee machine", 1200, "DeLonghi Dinamica Plus ECAM 370.95.T", 450, 7, true);
+        KitchenAppliance microwave = new KitchenAppliance("Microwave", 400, "Bosch BFL524MB0", 1000, 17, true);
+        KitchenAppliance kettle = new KitchenAppliance("Kettle", 40, "BORK K810", 2000, 4, true);
+        KitchenAppliance oven = new KitchenAppliance("Oven", 350, "GEFEST 622-02 А", 3500, 45, true);
 
-        LivingRoomAppliances cleaner = new LivingRoomAppliances("Vacuum cleaner", 300, "Xiaomi Vacuum Cleaner G11", 280, 2,4);
-        LivingRoomAppliances tv = new LivingRoomAppliances("TV", 2000, "LG B3 OLED65B3RLA", 55, 25, 9);
-        LivingRoomAppliances iron = new LivingRoomAppliances("Iron", 15, "Scarlett SC-SI30K23", 2200, 1,1);
-        LivingRoomAppliances notebook = new LivingRoomAppliances("Notebook", 1900, "Apple Macbook Pro 13 M2 2022 MNEQ3RUA", 80, 3,7);
+        LivingRoomAppliance cleaner = new LivingRoomAppliance("Vacuum cleaner", 300, "Xiaomi Vacuum Cleaner G11", 280, 2,4);
+        LivingRoomAppliance tv = new LivingRoomAppliance("TV", 2000, "LG B3 OLED65B3RLA", 55, 25, 9);
+        LivingRoomAppliance iron = new LivingRoomAppliance("Iron", 15, "Scarlett SC-SI30K23", 2200, 1,1);
+        LivingRoomAppliance notebook = new LivingRoomAppliance("Notebook", 1900, "Apple Macbook Pro 13 M2 2022 MNEQ3RUA", 80, 3,7);
 
-        Generators generator280 = new Generators("Generator", 400, "Hyundai HHY 4550F", 280, 46);
-        Generators generator10000 = new Generators("Generator", 2500, "Alteco AGG 15000 TE DUO", 10000, 198);
-        Generators solarPanel600 = new Generators("Solar panel", 210, "Geofox Solar Panel M6-300", 600, 19);
+        Generator generator280 = new Generator("Generator", 400, "Hyundai HHY 4550F", 280, 46);
+        Generator generator10000 = new Generator("Generator", 2500, "Alteco AGG 15000 TE DUO", 10000, 198);
+        Generator solarPanel600 = new Generator("Solar panel", 210, "Geofox Solar Panel M6-300", 600, 19);
 
         //Use case
         Home home = new Home(12000);
