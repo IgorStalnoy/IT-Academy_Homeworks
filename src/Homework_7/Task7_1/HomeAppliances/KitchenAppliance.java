@@ -1,6 +1,6 @@
 package Homework_7.Task7_1.HomeAppliances;
 
-public class KitchenAppliance extends HomeAppliances {
+public class KitchenAppliance extends HomeAppliance {
     private final int powerConsumption;
     private final boolean isUsedForCookingFood;
 

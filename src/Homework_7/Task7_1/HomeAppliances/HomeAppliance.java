@@ -2,7 +2,7 @@ package Homework_7.Task7_1.HomeAppliances;
 
 import Homework_7.Task7_1.Home;
 
-public abstract class HomeAppliances {
+public abstract class HomeAppliance {
     private final String type;
     private final int price;
     private final String model;
@@ -10,7 +10,7 @@ public abstract class HomeAppliances {
     private boolean isConnectedToGrid = false;
     private Home belongsToHouse;
 
-    HomeAppliances(String model, double weight, int price, String type) {
+    HomeAppliance(String model, double weight, int price, String type) {
         this.type = type;
         this.price = price;
         this.model = model;

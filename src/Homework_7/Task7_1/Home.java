@@ -1,7 +1,7 @@
 package Homework_7.Task7_1;
 
 import Homework_7.Task7_1.HomeAppliances.Generator;
-import Homework_7.Task7_1.HomeAppliances.HomeAppliances;
+import Homework_7.Task7_1.HomeAppliances.HomeAppliance;
 import Homework_7.Task7_1.HomeAppliances.KitchenAppliance;
 import Homework_7.Task7_1.HomeAppliances.LivingRoomAppliance;
 
@@ -283,22 +283,22 @@ public class Home {
         }
     }
 
-    private boolean isExist(HomeAppliances homeAppliances) {
-        if (homeAppliances instanceof KitchenAppliance) {
+    private boolean isExist(HomeAppliance homeAppliance) {
+        if (homeAppliance instanceof KitchenAppliance) {
             for (KitchenAppliance appliances : kitchenApplianceList) {
-                if (homeAppliances == appliances) {
+                if (homeAppliance == appliances) {
                     return true;
                 }
             }
-        } else if (homeAppliances instanceof LivingRoomAppliance) {
+        } else if (homeAppliance instanceof LivingRoomAppliance) {
             for (LivingRoomAppliance appliances : livingRoomApplianceList) {
-                if (homeAppliances == appliances) {
+                if (homeAppliance == appliances) {
                     return true;
                 }
             }
         } else {
             for (Generator appliances : generatorList) {
-                if (homeAppliances == appliances) {
+                if (homeAppliance == appliances) {
                     return true;
                 }
             }
@@ -307,97 +307,97 @@ public class Home {
     }
 
     public void searchByParameter(String fieldName, int min, int max) {
-        HomeAppliances[] temp;
-        HomeAppliances[] homeAppliancesSearchResult = new HomeAppliances[0];
+        HomeAppliance[] temp;
+        HomeAppliance[] homeApplianceSearchResult = new HomeAppliance[0];
         if (Objects.equals(fieldName, "price")) {
             for (KitchenAppliance kitchenAppliance : kitchenApplianceList) {
                 if (kitchenAppliance.getPrice() >= min && kitchenAppliance.getPrice() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = kitchenAppliance;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
             for (LivingRoomAppliance livingRoomAppliance : livingRoomApplianceList) {
                 if (livingRoomAppliance.getPrice() >= min && livingRoomAppliance.getPrice() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = livingRoomAppliance;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
             for (Generator generator : generatorList) {
                 if (generator.getPrice() >= min && generator.getPrice() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = generator;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
         } else if (Objects.equals(fieldName, "weight")) {
             for (KitchenAppliance kitchenAppliance : kitchenApplianceList) {
                 if (kitchenAppliance.getWeight() >= min && kitchenAppliance.getWeight() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = kitchenAppliance;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
             for (LivingRoomAppliance livingRoomAppliance : livingRoomApplianceList) {
                 if (livingRoomAppliance.getWeight() >= min && livingRoomAppliance.getWeight() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = livingRoomAppliance;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
             for (Generator generator : generatorList) {
                 if (generator.getWeight() >= min && generator.getWeight() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = generator;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
         } else if (Objects.equals(fieldName, "powerConsumption")) {
             for (KitchenAppliance kitchenAppliance : kitchenApplianceList) {
                 if (kitchenAppliance.getPowerConsumption() >= min && kitchenAppliance.getPowerConsumption() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = kitchenAppliance;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
             for (LivingRoomAppliance livingRoomAppliance : livingRoomApplianceList) {
                 if (livingRoomAppliance.getPowerConsumption() >= min && livingRoomAppliance.getPowerConsumption() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = livingRoomAppliance;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
         } else if (Objects.equals(fieldName, "generatedPower")) {
             for (Generator generator : generatorList) {
                 if (generator.getGeneratedPower() >= min && generator.getGeneratedPower() <= max) {
-                    temp = new HomeAppliances[homeAppliancesSearchResult.length + 1];
-                    System.arraycopy(homeAppliancesSearchResult, 0, temp, 0, homeAppliancesSearchResult.length);
+                    temp = new HomeAppliance[homeApplianceSearchResult.length + 1];
+                    System.arraycopy(homeApplianceSearchResult, 0, temp, 0, homeApplianceSearchResult.length);
                     temp[temp.length - 1] = generator;
-                    homeAppliancesSearchResult = new HomeAppliances[temp.length];
-                    System.arraycopy(temp, 0, homeAppliancesSearchResult, 0, temp.length);
+                    homeApplianceSearchResult = new HomeAppliance[temp.length];
+                    System.arraycopy(temp, 0, homeApplianceSearchResult, 0, temp.length);
                 }
             }
         }
         if (Objects.equals(fieldName, "price") || Objects.equals(fieldName, "weight") || Objects.equals(fieldName, "powerConsumption") || Objects.equals(fieldName, "generatedPower")) {
-            System.out.println("Found " + homeAppliancesSearchResult.length + " items matching your criteria.");
-            for (HomeAppliances i : homeAppliancesSearchResult) {
+            System.out.println("Found " + homeApplianceSearchResult.length + " items matching your criteria.");
+            for (HomeAppliance i : homeApplianceSearchResult) {
                 if (i instanceof KitchenAppliance) {
                     System.out.printf("Type : %s| Model : %s| Power Сonsumption : %dkw|  Weight : %skg|  Price : %d$  \n", i.getType(), i.getModel(), ((KitchenAppliance) i).getPowerConsumption(), i.getWeight(),
                             i.getPrice());

@@ -1,6 +1,6 @@
 package Homework_7.Task7_1.HomeAppliances;
 
-public class Generator extends HomeAppliances {
+public class Generator extends HomeAppliance {
     int generatedPower;
 
     public Generator(String type, int price, String model, int generatedPower, double weight) {

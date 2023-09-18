@@ -1,6 +1,6 @@
 package Homework_7.Task7_1.HomeAppliances;
 
-public class LivingRoomAppliance extends HomeAppliances {
+public class LivingRoomAppliance extends HomeAppliance {
     private final int powerConsumption;
     private final int attractivenessInInterior; //from 0 to 10
 
