@@ -1,11 +1,13 @@
-package Homework_7.Task7_2;
+package Homework_7.Task7_2.PublicTransport;
 
-public class Tram extends PublicTransport {
+public class Trolleybus extends PublicTransport {
     private final int energyConsumption;
+    private final int hornLength;
 
-    public Tram(String model, String fuelType, int maxDistance, int maxNumberOfSeats, int energyConsumption, int price) {
+    public Trolleybus(String model, String fuelType, int maxDistance, int maxNumberOfSeats, int energyConsumption, int price, int hornLength) {
         super(model, fuelType, maxDistance, maxNumberOfSeats, price);
         this.energyConsumption = energyConsumption;
+        this.hornLength = hornLength;
     }
 
     @Override
@@ -15,5 +17,9 @@ public class Tram extends PublicTransport {
 
     public int getEnergyConsumption() {
         return energyConsumption;
+    }
+
+    public int getHornLength() {
+        return hornLength;
     }
 }

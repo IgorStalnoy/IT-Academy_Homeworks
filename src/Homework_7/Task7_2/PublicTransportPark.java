@@ -1,47 +1,49 @@
 package Homework_7.Task7_2;
 
+import Homework_7.Task7_2.PublicTransport.*;
+
 import java.util.Objects;
 
 public class PublicTransportPark {
     private Bus[] busPark = new Bus[0];
     private MiniBus[] miniBusPark = new MiniBus[0];
-    private Tram[] tramPark = new Tram[0];
+    private Trolleybus[] trolleybusPark = new Trolleybus[0];
     private SubwayTrain[] subwayTrainDepot = new SubwayTrain[0];
 
     public void addBusToPark(Bus addedBus) {
-        Bus[] intermediateArray = new Bus[this.busPark.length + 1];
+        Bus[] temp = new Bus[this.busPark.length + 1];
         if (this.busPark.length != 0) {
-            System.arraycopy(this.busPark, 0, intermediateArray, 0, this.busPark.length);
+            System.arraycopy(this.busPark, 0, temp, 0, this.busPark.length);
         }
-        intermediateArray[intermediateArray.length - 1] = addedBus;
-        this.busPark = intermediateArray;
+        temp[temp.length - 1] = addedBus;
+        this.busPark = temp;
     }
 
     public void addMiniBusToPark(MiniBus addedMiniBus) {
-        MiniBus[] intermediateArray = new MiniBus[this.miniBusPark.length + 1];
+        MiniBus[] temp = new MiniBus[this.miniBusPark.length + 1];
         if (this.miniBusPark.length != 0) {
-            System.arraycopy(this.miniBusPark, 0, intermediateArray, 0, this.miniBusPark.length);
+            System.arraycopy(this.miniBusPark, 0, temp, 0, this.miniBusPark.length);
         }
-        intermediateArray[intermediateArray.length - 1] = addedMiniBus;
-        this.miniBusPark = intermediateArray;
+        temp[temp.length - 1] = addedMiniBus;
+        this.miniBusPark = temp;
     }
 
-    public void addTramToPark(Tram addedTram) {
-        Tram[] intermediateArray = new Tram[this.tramPark.length + 1];
-        if (this.tramPark.length != 0) {
-            System.arraycopy(this.tramPark, 0, intermediateArray, 0, this.tramPark.length);
+    public void addTrolleybusToPark(Trolleybus addedTrolleybus) {
+        Trolleybus[] temp = new Trolleybus[this.trolleybusPark.length + 1];
+        if (this.trolleybusPark.length != 0) {
+            System.arraycopy(this.trolleybusPark, 0, temp, 0, this.trolleybusPark.length);
         }
-        intermediateArray[intermediateArray.length - 1] = addedTram;
-        this.tramPark = intermediateArray;
+        temp[temp.length - 1] = addedTrolleybus;
+        this.trolleybusPark = temp;
     }
 
     public void addSubwayTrainToPark(SubwayTrain addedSubwayTrain) {
-        SubwayTrain[] intermediateArray = new SubwayTrain[this.subwayTrainDepot.length + 1];
+        SubwayTrain[] temp = new SubwayTrain[this.subwayTrainDepot.length + 1];
         if (this.subwayTrainDepot.length != 0) {
-            System.arraycopy(this.subwayTrainDepot, 0, intermediateArray, 0, this.subwayTrainDepot.length);
+            System.arraycopy(this.subwayTrainDepot, 0, temp, 0, this.subwayTrainDepot.length);
         }
-        intermediateArray[intermediateArray.length - 1] = addedSubwayTrain;
-        this.subwayTrainDepot = intermediateArray;
+        temp[temp.length - 1] = addedSubwayTrain;
+        this.subwayTrainDepot = temp;
     }
 
     public void printBusPark() {
@@ -60,9 +62,9 @@ public class PublicTransportPark {
         System.out.println();
     }
 
-    public void printTramBusPark() {
-        System.out.println("Your tram park contains " + tramPark.length + " trams");
-        for (Tram i : tramPark) {
+    public void printTrolleybusBusPark() {
+        System.out.println("Your tram park contains " + trolleybusPark.length + " trams");
+        for (Trolleybus i : trolleybusPark) {
             System.out.println(i.toString());
         }
         System.out.println();
@@ -77,11 +79,11 @@ public class PublicTransportPark {
     }
 
     public void printAllPublicTransportPark() {
-        int allTransportCount = busPark.length + miniBusPark.length + tramPark.length + subwayTrainDepot.length;
+        int allTransportCount = busPark.length + miniBusPark.length + trolleybusPark.length + subwayTrainDepot.length;
         System.out.println("Your public transport park contains " + allTransportCount + " vehicles");
         printBusPark();
         printMiniBusPark();
-        printTramBusPark();
+        printTrolleybusBusPark();
         printSubwayTrainDepot();
     }
 
@@ -93,7 +95,7 @@ public class PublicTransportPark {
         for (MiniBus i : miniBusPark) {
             allTransportCost = allTransportCost + i.getPrice();
         }
-        for (Tram i : tramPark) {
+        for (Trolleybus i : trolleybusPark) {
             allTransportCost = allTransportCost + i.getPrice();
         }
         for (SubwayTrain i : subwayTrainDepot) {
@@ -102,9 +104,43 @@ public class PublicTransportPark {
         System.out.println("Total cost of the park : " + allTransportCost + "$\n");
     }
 
+    public void averageBusesExhaustLevel() {
+        int count = 0;
+        int sum = 0;
+        for (Bus i : busPark) {
+            count++;
+            sum = sum + i.getExhaustGasLevel();
+        }
+        System.out.println("Average buses exhaust gas level in your park is " + (double) sum / count + "%\n");
+    }
+
+    public void totalVolumeOfDriversCoinBox() {
+        int totalVolume = 0;
+        for (MiniBus i : miniBusPark) {
+            totalVolume = totalVolume + i.getVolumeOfDriversCoinBox();
+        }
+        System.out.println("Total volume of drivers coin box is " + totalVolume + "cm3\n");
+    }
+
+    public void totalLengthOfTrolleybusHornsInPark() {
+        int totalLength = 0;
+        for (Trolleybus i : trolleybusPark) {
+            totalLength = totalLength + i.getHornLength();
+        }
+        System.out.println("Total length of trolleybus horns in park " + totalLength + "m\n");
+    }
+
+    public void totalTrainLength() {
+        int totalLength = 0;
+        for (SubwayTrain i : subwayTrainDepot) {
+            totalLength = totalLength + i.getTrainLength();
+        }
+        System.out.println("Total length of subway train park " + totalLength + "m\n");
+    }
+
     public void sortPublicTransportByFuelConsumptionDESC() {
         if (busPark.length > 0) {
-            Bus buffer;
+            Bus temp;
             for (int i = 0; i < busPark.length - 1; i++) {
                 int maxConsumption = busPark[i].getGasolineConsumption();
                 int maxPosition = i;
@@ -114,13 +150,13 @@ public class PublicTransportPark {
                         maxPosition = k;
                     }
                 }
-                buffer = busPark[maxPosition];
+                temp = busPark[maxPosition];
                 busPark[maxPosition] = busPark[i];
-                busPark[i] = buffer;
+                busPark[i] = temp;
             }
         }
         if (miniBusPark.length > 0) {
-            MiniBus buffer;
+            MiniBus temp;
             for (int i = 0; i < miniBusPark.length - 1; i++) {
                 int maxConsumption = miniBusPark[i].getGasolineConsumption();
                 int maxPosition = i;
@@ -130,29 +166,29 @@ public class PublicTransportPark {
                         maxPosition = k;
                     }
                 }
-                buffer = miniBusPark[maxPosition];
+                temp = miniBusPark[maxPosition];
                 miniBusPark[maxPosition] = miniBusPark[i];
-                miniBusPark[i] = buffer;
+                miniBusPark[i] = temp;
             }
         }
-        if (tramPark.length > 0) {
-            Tram buffer;
-            for (int i = 0; i < tramPark.length - 1; i++) {
-                int maxConsumption = tramPark[i].getEnergyConsumption();
+        if (trolleybusPark.length > 0) {
+            Trolleybus temp;
+            for (int i = 0; i < trolleybusPark.length - 1; i++) {
+                int maxConsumption = trolleybusPark[i].getEnergyConsumption();
                 int maxPosition = i;
-                for (int k = i; k < tramPark.length; k++) {
-                    if (tramPark[k].getEnergyConsumption() > maxConsumption) {
-                        maxConsumption = tramPark[k].getEnergyConsumption();
+                for (int k = i; k < trolleybusPark.length; k++) {
+                    if (trolleybusPark[k].getEnergyConsumption() > maxConsumption) {
+                        maxConsumption = trolleybusPark[k].getEnergyConsumption();
                         maxPosition = k;
                     }
                 }
-                buffer = tramPark[maxPosition];
-                tramPark[maxPosition] = tramPark[i];
-                tramPark[i] = buffer;
+                temp = trolleybusPark[maxPosition];
+                trolleybusPark[maxPosition] = trolleybusPark[i];
+                trolleybusPark[i] = temp;
             }
         }
         if (subwayTrainDepot.length > 0) {
-            SubwayTrain buffer;
+            SubwayTrain temp;
             for (int i = 0; i < subwayTrainDepot.length - 1; i++) {
                 int maxConsumption = subwayTrainDepot[i].getEnergyConsumption();
                 int maxPosition = i;
@@ -162,127 +198,127 @@ public class PublicTransportPark {
                         maxPosition = k;
                     }
                 }
-                buffer = subwayTrainDepot[maxPosition];
+                temp = subwayTrainDepot[maxPosition];
                 subwayTrainDepot[maxPosition] = subwayTrainDepot[i];
-                subwayTrainDepot[i] = buffer;
+                subwayTrainDepot[i] = temp;
             }
         }
     }
 
     public void searchByParameter(String fieldName, int min, int max) {
-        PublicTransport[] publicTransportIntermediateResult;
+        PublicTransport[] temp;
         PublicTransport[] publicTransportSearchResult = new PublicTransport[0];
         if (Objects.equals(fieldName, "price")) {
             for (Bus bus : busPark) {
                 if (bus.getPrice() >= min && bus.getPrice() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = bus;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = bus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
             for (MiniBus miniBus : miniBusPark) {
                 if (miniBus.getPrice() >= min && miniBus.getPrice() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = miniBus;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = miniBus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
-            for (Tram tram : tramPark) {
-                if (tram.getPrice() >= min && tram.getPrice() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = tram;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+            for (Trolleybus trolleybus : trolleybusPark) {
+                if (trolleybus.getPrice() >= min && trolleybus.getPrice() <= max) {
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = trolleybus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
             for (SubwayTrain subwayTrain : subwayTrainDepot) {
                 if (subwayTrain.getPrice() >= min && subwayTrain.getPrice() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = subwayTrain;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = subwayTrain;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
         }
         if (Objects.equals(fieldName, "maxDistance")) {
             for (Bus bus : busPark) {
                 if (bus.getMaxDistance() >= min && bus.getMaxDistance() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = bus;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = bus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
             for (MiniBus miniBus : miniBusPark) {
                 if (miniBus.getMaxDistance() >= min && miniBus.getMaxDistance() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = miniBus;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = miniBus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
-            for (Tram tram : tramPark) {
-                if (tram.getMaxDistance() >= min && tram.getMaxDistance() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = tram;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+            for (Trolleybus trolleybus : trolleybusPark) {
+                if (trolleybus.getMaxDistance() >= min && trolleybus.getMaxDistance() <= max) {
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = trolleybus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
             for (SubwayTrain subwayTrain : subwayTrainDepot) {
                 if (subwayTrain.getMaxDistance() >= min && subwayTrain.getMaxDistance() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = subwayTrain;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = subwayTrain;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
         }
         if (Objects.equals(fieldName, "maxNumberOfSeats")) {
             for (Bus bus : busPark) {
                 if (bus.getMaxNumberOfSeats() >= min && bus.getMaxNumberOfSeats() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = bus;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = bus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
             for (MiniBus miniBus : miniBusPark) {
                 if (miniBus.getMaxNumberOfSeats() >= min && miniBus.getMaxNumberOfSeats() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = miniBus;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = miniBus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
-            for (Tram tram : tramPark) {
-                if (tram.getMaxNumberOfSeats() >= min && tram.getMaxNumberOfSeats() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = tram;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+            for (Trolleybus trolleybus : trolleybusPark) {
+                if (trolleybus.getMaxNumberOfSeats() >= min && trolleybus.getMaxNumberOfSeats() <= max) {
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = trolleybus;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
             for (SubwayTrain subwayTrain : subwayTrainDepot) {
                 if (subwayTrain.getMaxNumberOfSeats() >= min && subwayTrain.getMaxNumberOfSeats() <= max) {
-                    publicTransportIntermediateResult = new PublicTransport[publicTransportSearchResult.length + 1];
-                    System.arraycopy(publicTransportSearchResult, 0, publicTransportIntermediateResult, 0, publicTransportSearchResult.length);
-                    publicTransportIntermediateResult[publicTransportIntermediateResult.length - 1] = subwayTrain;
-                    publicTransportSearchResult = new PublicTransport[publicTransportIntermediateResult.length];
-                    System.arraycopy(publicTransportIntermediateResult, 0, publicTransportSearchResult, 0, publicTransportIntermediateResult.length);
+                    temp = new PublicTransport[publicTransportSearchResult.length + 1];
+                    System.arraycopy(publicTransportSearchResult, 0, temp, 0, publicTransportSearchResult.length);
+                    temp[temp.length - 1] = subwayTrain;
+                    publicTransportSearchResult = new PublicTransport[temp.length];
+                    System.arraycopy(temp, 0, publicTransportSearchResult, 0, temp.length);
                 }
             }
         }

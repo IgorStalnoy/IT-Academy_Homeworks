@@ -1,37 +1,37 @@
-package Homework_7.Task7_1;
+package Homework_7.Task7_1.HomeAppliances;
 
-public class SourcesOfElectricity extends HomeTechnique {
+public class Generators extends HomeAppliances {
     int generatedPower;
 
-    public SourcesOfElectricity(String type, int price, String model, int generatedPower, double weight) {
+    public Generators(String type, int price, String model, int generatedPower, double weight) {
         super(model, weight, price, type);
         this.generatedPower = generatedPower;
     }
 
     @Override
     public void connectToPowerGrid() {
-        if (!Home.availabilityCheck(this)) {
+        if (getBelongsToHouse() == null) {
             System.out.println("You can't plug in something you don't have. Please buy an item\n");
-        } else if (Home.availabilityCheck(this) && Home.isConnectedToPowerGridCheck(this)) {
+        } else if (getBelongsToHouse() != null && isConnectedToGrid()) {
             System.out.println("You have already plugged in the appliance\n");
         } else {
-            this.isConnectedToGrid = true;
-            Home.setMaxNetworkLoad(this.generatedPower);
+            setConnectedToGrid(true);
+            getBelongsToHouse().setMaxNetworkLoad(this.generatedPower);
             System.out.println("You have successfully connected the device to the network\n");
         }
     }
 
     public void disconnectFromPowerGrid() {
-        if (!Home.availabilityCheck(this)) {
+        if (getBelongsToHouse() == null) {
             System.out.println("You can't unplug in something you don't have. Please buy an item\n");
-        } else if (Home.availabilityCheck(this) && !Home.isConnectedToPowerGridCheck(this)) {
+        } else if (getBelongsToHouse() != null && !isConnectedToGrid()) {
             System.out.println("You have already unplugged in the appliance\n");
         } else {
-            if (Home.getUsedNetworkLoad() > Home.getMaxNetworkLoad() - this.generatedPower) {
-                Home.energyOverload();
+            if (getBelongsToHouse().getUsedNetworkLoad() > getBelongsToHouse().getMaxNetworkLoad() - this.generatedPower) {
+                getBelongsToHouse().energyOverload();
             } else {
-                this.isConnectedToGrid = false;
-                Home.setMaxNetworkLoad(this.generatedPower * -1);
+                setConnectedToGrid(false);
+                getBelongsToHouse().setMaxNetworkLoad(this.generatedPower * -1);
                 System.out.println("You have successfully disconnected the device to the network\n");
             }
         }

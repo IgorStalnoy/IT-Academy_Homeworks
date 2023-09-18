@@ -1,4 +1,4 @@
-package Homework_7.Task7_2;
+package Homework_7.Task7_2.PublicTransport;
 
 public abstract class PublicTransport {
 
