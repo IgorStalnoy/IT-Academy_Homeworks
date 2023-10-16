@@ -12,6 +12,7 @@ public class FindMinThread extends Thread {
     public void run() {
         System.out.println(Thread.currentThread().getName() + " is started");
         findMin();
+        System.out.println(searchResult);
     }
 
     private void findMin() {
