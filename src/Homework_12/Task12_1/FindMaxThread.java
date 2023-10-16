@@ -12,7 +12,6 @@ public class FindMaxThread extends Thread {
     public void run() {
         System.out.println(Thread.currentThread().getName() + " is started");
         findMax();
-        System.out.println(searchResult);
     }
 
     private void findMax() {

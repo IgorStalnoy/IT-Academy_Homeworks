@@ -28,20 +28,20 @@ public class Main {
         findMaxThread.start();
         findMinThread.start();
 
-//        if (findMaxThread.getState() != Thread.State.TERMINATED) {
-//            try {
-//                findMaxThread.join();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        if (findMinThread.getState() != Thread.State.TERMINATED) {
-//            try {
-//                findMaxThread.join();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if (findMaxThread.getState() != Thread.State.TERMINATED) {
+            try {
+                findMaxThread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if (findMinThread.getState() != Thread.State.TERMINATED) {
+            try {
+                findMaxThread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         System.out.println(findMaxThread.getState());
         System.out.println(findMinThread.getState());
 
