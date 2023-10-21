@@ -1,15 +1,13 @@
 package Homework_10.Task10_2;
 
 public class Tomato extends Food {
+    private final String variety;
 
-    private final FoodType type = FoodType.VEGETABLE;
-
-    public Tomato(String name) {
-        super(name);
+    public Tomato(String name, String variety) {
+        super(FoodType.VEGETABLE, name);
+        this.variety = variety;
     }
-
-    public FoodType getFoodType() {
-        return type;
+    public String getVariety() {
+        return variety;
     }
-
 }

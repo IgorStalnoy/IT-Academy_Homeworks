@@ -10,19 +10,16 @@ public class TwoDimIterator<T> {
         this.array = array;
     }
 
-    public void next() {
-        while (hasNext()) {
-            while (columnPosition < array[array.length - 1].length) {
-                System.out.print(array[rowPosition][columnPosition] + " ");
-                columnPosition++;
-            }
+    public T next() {
+        if (columnPosition == array[rowPosition].length) {
             rowPosition++;
-            columnPosition = 0;
-            System.out.println();
+            columnPosition = 1;
+        } else {
+            columnPosition++;
         }
+        return array[rowPosition][columnPosition - 1];
     }
-
-    private boolean hasNext() {
-        return rowPosition < array.length && columnPosition < array[array.length - 1].length;
+    public boolean hasNext() {
+        return rowPosition != array.length - 1 || columnPosition != array[array.length - 1].length;
     }
 }

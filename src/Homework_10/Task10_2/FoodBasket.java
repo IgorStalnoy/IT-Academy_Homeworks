@@ -2,7 +2,7 @@ package Homework_10.Task10_2;
 
 public class FoodBasket {
 
-    Food[] foodBasket;
+    private final Food[] foodBasket;
 
     public FoodBasket(Food...foods) {
         this.foodBasket = new Food[foods.length];
@@ -11,8 +11,10 @@ public class FoodBasket {
 
     public boolean isAllVegetarian() {
         for (Food i : foodBasket) {
-            return i.getFoodType().isVegetarian();
+            if (!i.getFoodType().isVegetarian()) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 }

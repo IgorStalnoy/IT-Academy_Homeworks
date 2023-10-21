@@ -2,13 +2,17 @@ package Homework_10.Task10_2;
 
 public abstract class Food {
 
+    private final FoodType type;
     private String name;
 
-    public Food(String name) {
+    public Food(FoodType type, String name) {
+        this.type = type;
         this.name = name;
     }
 
-    public abstract FoodType getFoodType();
+    public FoodType getFoodType() {
+        return type;
+    }
 
     public String getName() {
         return name;
