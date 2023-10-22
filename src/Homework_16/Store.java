@@ -1,4 +1,4 @@
-package Homework16;
+package Homework_16;
 
 import java.util.concurrent.Semaphore;
 
