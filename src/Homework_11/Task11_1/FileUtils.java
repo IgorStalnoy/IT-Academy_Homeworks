@@ -5,8 +5,7 @@ import java.util.Random;
 
 public class FileUtils {
 
-    public void CreateFileWithNumbers(String name) {
-
+    public void createFileWithNumbers(String name) {
         try (BufferedWriter out = new BufferedWriter(new FileWriter(name))) {
             for (int i = 0; i < 1000; i++) {
                 out.write((new Random().nextInt(100000) + 1) + " ");
@@ -16,8 +15,7 @@ public class FileUtils {
         }
     }
 
-    public void saveFileDataToArray(int[] array, int startIndex, String path) {
-
+    public int[] readFile(int[] array, int startIndex, String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             int temp;
             int i = startIndex;
@@ -35,5 +33,6 @@ public class FileUtils {
             e.printStackTrace();
         }
 
+        return array;
     }
 }

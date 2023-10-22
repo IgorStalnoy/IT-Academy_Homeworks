@@ -19,10 +19,10 @@ public class Main {
             e.printStackTrace();
         }
 
-        int sum = 0,count = 0;
+        int sum = 0, count = 0;
         try (InputStream inputStream = new FileInputStream("binary.txt")) {
             int i;
-            while ((i = inputStream.read()) != -1){
+            while ((i = inputStream.read()) != -1) {
                 sum = sum + i;
                 count++;
                 System.out.print(i + " ");
@@ -30,7 +30,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("\nArithmetical mean : " + (double)sum/count);
+        System.out.println("\nArithmetical mean : " + (double) sum / count);
 
     }
 }

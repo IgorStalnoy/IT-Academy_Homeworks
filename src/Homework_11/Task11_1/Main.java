@@ -14,10 +14,10 @@ public class Main {
 
         int[] array = new int[2000];
         FileUtils fileUtils = new FileUtils();
-        fileUtils.CreateFileWithNumbers("in1.txt");
-        fileUtils.CreateFileWithNumbers("in2.txt");
-        fileUtils.saveFileDataToArray(array,0,"in1.txt");
-        fileUtils.saveFileDataToArray(array,1000,"in2.txt");
+        fileUtils.createFileWithNumbers("in1.txt");
+        fileUtils.createFileWithNumbers("in2.txt");
+        array = fileUtils.readFile(array, 0, "in1.txt");
+        array = fileUtils.readFile(array, 1000, "in2.txt");
         Arrays.sort(array);
         try (FileWriter fileWriter3 = new FileWriter("out.txt")) {
             for (int i : array) {
