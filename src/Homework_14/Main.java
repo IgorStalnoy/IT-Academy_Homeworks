@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-        int[][] matrix = Stream.generate(() -> new Random().ints(5, 1, 11).toArray()).limit(8)
+        int[][] matrix = Stream.generate(() -> new Random().ints(6, 1, 11).toArray()).limit(8)
                 .toArray(int[][]::new);
         Arrays.stream(matrix).forEach(s -> System.out.println(Arrays.toString(s)));
         ExecutorService ex = Executors.newFixedThreadPool(2);

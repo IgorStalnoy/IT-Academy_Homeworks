@@ -12,8 +12,8 @@ public class ColumnsCalculate implements Callable<Integer> {
     }
 
     @Override
-    public Integer call() throws Exception {
+    public Integer call() {
         return IntStream.range(0, matrix[0].length).map(x -> Arrays.stream(matrix).map(a -> a[x]).reduce((b, c) -> b * c)
-                .get()).reduce(Integer::sum).getAsInt();
+                .get()).reduce(Integer::sum).orElseThrow(NullPointerException::new);
     }
 }

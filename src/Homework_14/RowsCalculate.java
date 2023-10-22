@@ -12,7 +12,8 @@ public class RowsCalculate implements Callable<Integer> {
     }
 
     @Override
-    public Integer call() throws Exception {
-        return Arrays.stream(matrix).map(a -> Arrays.stream(a).reduce((b, c) -> b * c)).map(OptionalInt::getAsInt).reduce(Integer::sum).get();
+    public Integer call() {
+        return Arrays.stream(matrix).map(a -> Arrays.stream(a).reduce((b, c) -> b * c)).
+                map(OptionalInt::getAsInt).reduce(Integer::sum).orElseThrow(NumberFormatException::new);
     }
 }
