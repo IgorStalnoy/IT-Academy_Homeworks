@@ -1,9 +1,10 @@
 package Homework_16;
 
 import java.util.concurrent.Semaphore;
+import static java.lang.Thread.sleep;
 
 public class Store {
-    Semaphore semaphore;
+    private final Semaphore semaphore;
 
     public Store(Semaphore semaphore) {
         this.semaphore = semaphore;
@@ -11,57 +12,47 @@ public class Store {
 
     private int messageCount = 0;
 
-    public synchronized void get() {
+    public int get(int i) {
         try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        while (messageCount < 1) {
-            try {
-                System.out.printf("Consumer(%d): Нет сообщений\n", messageCount);
-                Thread.sleep(400);
+            if (messageCount < 1) {
                 semaphore.release();
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.printf("Consumer(%d): Нет сообщений\n", messageCount);
+                sleep(500);
+            } else {
+                semaphore.acquire();
+                messageCount--;
+                i++;
+                System.out.println(i + "сообщений прочитано");
+                sleep(500);
+                System.out.printf("Consumer(%d): Сообщение прочитано\n", messageCount);
+                sleep(500);
+                semaphore.release();
             }
-        }
-        System.out.printf("Consumer(%d): Сообщение прочитано\n", messageCount);
-        try {
-            Thread.sleep(400);
+            return i;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        messageCount--;
-        notifyAll();
-        semaphore.release();
     }
 
-    public synchronized void put() {
+    public int put(int i) {
         try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        while (messageCount >= 3) {
-            try {
-                System.out.printf("Producer(%d): Буффер переполнен\n", messageCount);
-                Thread.sleep(400);
+            if (messageCount >= 3) {
                 semaphore.release();
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.printf("Producer(%d): Буффер переполнен\n", messageCount);
+                sleep(500);
+            } else {
+                semaphore.acquire();
+                messageCount++;
+                i++;
+                System.out.println(i + "сообщений отправлено");
+                sleep(500);
+                System.out.printf("Producer(%d): Сообщение отправлено\n", messageCount);
+                sleep(500);
+                semaphore.release();
             }
-        }
-        System.out.printf("Producer(%d): Сообщение отправлено\n", messageCount);
-        try {
-            Thread.sleep(400);
+            return i;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        messageCount++;
-        notifyAll();
-        semaphore.release();
     }
 }

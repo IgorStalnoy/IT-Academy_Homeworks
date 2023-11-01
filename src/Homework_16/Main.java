@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 public class Main {
     public static void main(String[] args) {
 
-        Semaphore semaphore = new Semaphore(1, false);
+        Semaphore semaphore = new Semaphore(0);
         Store store = new Store(semaphore);
         Producer producer = new Producer(store);
         Consumer consumer = new Consumer(store);

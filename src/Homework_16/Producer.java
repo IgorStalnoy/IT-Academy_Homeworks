@@ -1,6 +1,5 @@
 package Homework_16;
 
-
 public class Producer implements Runnable {
     Store store;
 
@@ -9,8 +8,8 @@ public class Producer implements Runnable {
     }
 
     public void run() {
-        for (int i = 1; i < 10; i++) {
-            store.put();
+        for (int i = 0; i < 10;) {
+          i =  store.put(i);
         }
     }
 }
